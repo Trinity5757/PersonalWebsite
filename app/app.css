@@ -1,15 +1,47 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+:root {
+    /* This is the overall color palette for the website*/
+    --espresso: #35231B;
+    --mocha: #524536;
+    --sky: #E2F2FF;
+    --blush: #D9B3BD;
+    --white: #ffffff;
+    --black: #000000;
+
+    /* Different fonts for the header and subheader */
+    --font-sans: 'Roboto Slab', serif;
+    --headerFont: 'Montserrat', sans-serif;
+
+
+    /* This is for the light mode */
+    --background: var(--blush);
+    --textColor: var(--black);
+    --highlightColor: var(--espresso);
+    --borderColor: var(--mocha);
+    --surfaceColor: var(--sky);
+}
+
+/* This is for the dark mode of the website */
+.dark {
+    --background: var(--espresso);
+    --textColor: var(--white);
+    --highlightColor: var(--sky);
+    --borderColor: var(--blush);
+    --surfaceColor: var(--mocha);
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  font-family: var(--font-sans);
+  color: var(--textColor);
+  background-color: var(--background);
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+h1, h2, h3, h4, h5, h6
+{
+  font-family: var(--headerFont);
 }
