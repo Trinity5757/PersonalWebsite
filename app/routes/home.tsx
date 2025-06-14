@@ -1,6 +1,7 @@
 import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
 
+//This allows the programmer to edit the meta data
 export function meta({}: Route.MetaArgs) {
   return [
     //The title is the top portion of the website

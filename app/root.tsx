@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+import Navigation from "./components/navigation";
 import type { Route } from "./+types/root";
 import "./app.css";
 
@@ -22,7 +23,7 @@ export const links: Route.LinksFunction = () => [
     // This is where the font being used by the entire website is declared
     // When declaring two family styles, use the same link
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Dangrek&family=Roboto+Slab&display=swap",
   },
 ];
 
@@ -45,7 +46,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return(<> 
+  <Navigation />
+  <Outlet />
+  </>);
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

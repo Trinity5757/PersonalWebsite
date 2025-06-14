@@ -2,33 +2,41 @@
 
 :root {
     /* This is the overall color palette for the website*/
-    --espresso: #35231B;
+    --forrest: #1B3B2F;
     --mocha: #524536;
-    --sky: #E2F2FF;
-    --blush: #D9B3BD;
+    --blush: #FFD1DC;
+    --cream: #FBF2ED;
+    
+    /* These are the writing colors. Do not mess with the writing colors */
     --white: #ffffff;
     --black: #000000;
 
     /* Different fonts for the header and subheader */
     --font-sans: 'Roboto Slab', serif;
-    --headerFont: 'Montserrat', sans-serif;
+    --headerFont: 'Dangrek', cursive;
 
 
     /* This is for the light mode */
-    --background: var(--blush);
+    --background: var(--cream);
     --textColor: var(--black);
-    --highlightColor: var(--espresso);
+    --highlightColor: var(--forrest);
     --borderColor: var(--mocha);
-    --surfaceColor: var(--sky);
+    --surfaceColor: var(--blush);
+    --navShadow: rgba(0, 0, 0, 0.1);
 }
 
 /* This is for the dark mode of the website */
 .dark {
-    --background: var(--espresso);
+    --background: var(--forrest);
     --textColor: var(--white);
-    --highlightColor: var(--sky);
-    --borderColor: var(--blush);
+    --highlightColor: var(--blush);
+    --borderColor: var(--cream);
     --surfaceColor: var(--mocha);
+    --navShadow: rgba(255, 255, 255, 0.05);
+}
+
+.nav-shadow {
+  box-shadow: 0 4px 2px -2px var(--navShadow);
 }
 
 html,
@@ -37,9 +45,6 @@ body {
   color: var(--textColor);
   background-color: var(--background);
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
 }
 h1, h2, h3, h4, h5, h6
 {

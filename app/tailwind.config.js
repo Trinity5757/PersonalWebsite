@@ -15,9 +15,9 @@ module.exports =
                 heading: ['var(--headerFont)'],
             },
             colors: {
-                espresso: 'var(--espresso)',
+                forrest: 'var(--forrest)',
                 mocha: 'var(--mocha)',
-                sky: 'var(--sky)',
+                cream: 'var(--cream)',
                 blush: 'var(--blush)',
                 white: 'var(--white)',
                 black: 'var(--black)',
