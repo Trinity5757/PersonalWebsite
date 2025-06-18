@@ -3,8 +3,8 @@
 :root {
     /* This is the overall color palette for the website*/
     --forrest: #1B3B2F;
-    --mocha: #524536;
-    --blush: #FFD1DC;
+    --mocha: #6B4C3B;
+    --blush: #F9C6C9;
     --cream: #FBF2ED;
     
     /* These are the writing colors. Do not mess with the writing colors */
@@ -49,4 +49,10 @@ body {
 h1, h2, h3, h4, h5, h6
 {
   font-family: var(--headerFont);
+}
+
+.custom-bullet li::before {
+  content: '✿'; 
+  margin-right: 0.5rem;
+  color: var(--highlightColor);
 }
