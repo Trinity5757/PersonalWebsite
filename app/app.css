@@ -4,8 +4,10 @@
     /* This is the overall color palette for the website*/
     --forrest: #1B3B2F;
     --mocha: #6B4C3B;
-    --blush: #F9C6C9;
+    --blush: #E29AA0;
     --cream: #FBF2ED;
+    --creamDark: #F0E0D7;
+    --forrestLight: #3D5C4D;
     
     /* These are the writing colors. Do not mess with the writing colors */
     --white: #ffffff;
@@ -22,6 +24,7 @@
     --highlightColor: var(--forrest);
     --borderColor: var(--mocha);
     --surfaceColor: var(--blush);
+    --backgroundOffset: var(--creamDark);
     --navShadow: rgba(0, 0, 0, 0.1);
 }
 
@@ -33,6 +36,7 @@
     --borderColor: var(--cream);
     --surfaceColor: var(--mocha);
     --navShadow: rgba(255, 255, 255, 0.05);
+    --backgroundOffset: var(--forrestLight);
 }
 
 .nav-shadow {
@@ -55,4 +59,37 @@ h1, h2, h3, h4, h5, h6
   content: '✿'; 
   margin-right: 0.5rem;
   color: var(--highlightColor);
+}
+
+button:focus-visible, 
+a:focus-visible {
+  outline: 2px solid var(--highlightColor);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button:focus-visible {
+  box-shadow: 0 0 0 3px var(--surfaceColor);
+}
+
+nav a:focus-visible {
+  outline: 2px solid var(--surfaceColor);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.sticky-note {
+  transition: transform 0.3s;
+}
+.sticky-note:hover {
+  transform: rotate(-1deg) scale(1.02);
+}
+
+.polaroid-shuffle {
+  transform: rotate(5deg) scale(0.95);
+  transition: transform 0.2s ease-in-out;
+}
+
+.polaroid-enter {
+  transform: rotate(-2deg) scale(1.05);
 }

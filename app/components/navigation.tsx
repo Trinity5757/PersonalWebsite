@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function Navigation() {
     return (
-        <nav className="bg-[var(--highlightColor)] text-[var(--background)] shadow-lg/20 ">
+        <nav className="fixed top-0 left-0 w-full z-50 bg-[var(--highlightColor)] text-[var(--background)] shadow-lg">
             <ul className="flex justify-between items-center p-4 w-full text-shadow-lg">
                 <li className="font-headingFont font-bold text-xl">Trinity Stallworth</li>
                 <div className="flex space-x-4">

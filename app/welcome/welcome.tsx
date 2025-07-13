@@ -1,61 +1,84 @@
-export function Welcome() {
+import { useState } from 'react';
+import { polaroids } from './polaroids';
+
+export default function Welcome() {
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const currentPolaroid = polaroids[currentIndex];
+
+  const handleShuffle = () => {
+    setCurrentIndex((prev) => (prev + 1) % polaroids.length);
+  };
+
   return (
-    <main className="relative bg-background">
-  <div className="absolute inset-0 bg-[url('app\welcome\olga-thelavart-vS3idIiYxX0-unsplash.jpg')] bg-repeat opacity-20 pointer-events-none z-0"></div>
+    <main className="bg-background pt-16 md:pt-20">
+      <div className="absolute inset-0 bg-[url('/app/welcome/olga-thelavart-vS3idIiYxX0-unsplash.jpg')] bg-repeat opacity-50 z-0"></div>
+
       {/* Top Visual Block */}
-        <section className="relative z-10 flex justify-center items-start w-[70%] px-4 py-8 mx-auto gap-8">
+      <section className="relative z-10 flex flex-col lg:flex-row justify-center items-center w-[90%] max-w-7xl px-4 py-8 mx-auto gap-8 min-h-[calc(100vh-5rem)]">
+
         {/* Left Block: Sticky note + image grouped together */}
-        <div className="relative">
+        <div className="relative w-full lg:w-1/2 max-w-[40rem] mx-auto">
           {/* Sticky Note */}
-          <div className="absolute top-4 -left-15 z-10 bg-[var(--surfaceColor)] p-4 rounded-md shadow-lg rotate-[-3deg] w-fit max-w-xs">
-            <h2 className="text-5xl font-headingFont font-bold text-[var(--highlightColor)]">
-              Howdy Hey!
+          <div className="sticky-note absolute top-4 sm:top-8 left-2 sm:left-4 md:left-0 lg:-left-10 xl:-left-[3.75rem] z-10 bg-[var(--surfaceColor)] p-2 sm:p-3 md:p-4 rounded-md shadow-lg rotate-[-3deg] w-fit max-w-[85vw] sm:max-w-xs">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-headingFont font-bold text-[var(--highlightColor)]">
+              Welcome!
             </h2>
           </div>
 
           {/* Main Image */}
           <img
-            src="app/welcome/_MG_8906.JPG"
-            alt="This is Supposed to be Trinity Stallworth"
-            className="relative w-[40rem] h-auto rounded-lg z-0"
+            src="/app/welcome/_MG_8906.JPG"
+            alt="Trinity Stallworth should appear here"
+            className="relative w-full h-auto rounded-lg z-0 border-[0.25rem] sm:border-[0.4rem] border-[var(--highlightColor)] shadow-[inset_0_0_10px_rgba(0,0,0,0.3)] shadow-lg"
           />
         </div>
+
         {/* Right overlay: Name & Title */}
-        <div className='flex flex-col space-y-4 mt-4'>
-          <h3 className="inline-block text-2xl md:text-3xl font-medium font-bodyFont bg-[var(--surfaceColor)] text-[var(--borderColor)] p-2 rounded-md underline decoration-dotted decoration-[var(--highlightColor)]">My name is - </h3>
-          <h1 className='inline-block text-4xl md:text-5xl font-headingFont bg-[var(--surfaceColor)] text-[var(--highlightColor)] p-2 rounded-md shadow-[6px_6px_0_0_var(--borderColor)]'>
+        <div className="flex flex-col space-y-4 mt-8 lg:mt-0 lg:ml-8 w-full lg:w-1/2 lg:text-left bg-[var(--backgroundOffset)] p-6 sm:p-8 rounded-lg border border-dashed">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-medium p-1 decoration-[var(--highlightColor)]">
+            My Name Is -
+          </h3>
+          <h1 className='text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-headingFont text-center text-[var(--highlightColor)] p-2 border border-dashed rounded-lg bg-[var(--background)] mx-auto w-fit'>
             Trinity Stallworth
           </h1>
-          <h3 className='inline-block text-2xl md:text-3xl font-medium font-bodyFont bg-[var(--surfaceColor)] text-[var(--borderColor)] p-2 rounded-md underline decoration-dotted decoration-[var(--highlightColor)]'>
-            I Strive For  -
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-medium">
+            Software Engineer | Accessibility Advocate
           </h3>
-          <ul className="font-bodyFont text-2xl custom-bullet ml-6 space-y-4 bg-[var(--surfaceColor)] list-none p-2 rounded-md shadow-[6px_6px_0_0_var(--borderColor)]">
-            <li className="pl-2 ">lasting, maintainable solutions</li>
+          <hr className="border-[var(--highlightColor)] opacity-30" />
+          <h3 className='text-xl sm:text-2xl lg:text-3xl font-medium p-1 decoration-[var(--highlightColor)]'>
+            I Strive For -
+          </h3>
+          <ul className="font-bodyFont text-lg sm:text-xl lg:text-2xl custom-bullet ml-4 sm:ml-6 space-y-2 sm:space-y-4 list-none p-2">
+            <li className="pl-2">lasting, maintainable solutions</li>
             <li className="pl-2">accessible, human-centered design</li>
             <li className="pl-2">continuous learning and meaningful impact</li>
           </ul>
-        <button className="font-headingFont font-medium bg-[var(--surfaceColor)] text-[var(--highlightColor)] p-2 rounded-md text-2xl">Would you like to see my bio?</button>  
+          <button className="transition-transform active:scale-95 font-[var(--headingFont)] font-medium rounded-md bg-[var(--surfaceColor)] text-[var(--highlightColor)] p-3 sm:p-4 text-lg sm:text-xl lg:text-2xl hover:bg-[var(--highlightColor)] hover:text-[var(--surfaceColor)] focus-visible:outline-2 focus-visible:outline-[var(--highlightColor)] focus-visible:outline-offset-2 mx-auto w-fit">
+            Want to know more?
+          </button>
         </div>
-        
+
       </section>
 
       {/* Bio Content */}
-      <section className='w-[70%] mx-auto p-8 font-bodyFont text-lg leading-relaxed space-y-4'>
-        <p>
-          A Computer Science graduate with a strong passion for software design and data science.
-        </p>
-        <p>
-          My academic journey began at Allan Hancock College, where I earned an Associate’s degree in Mathematics and Computer Science, and continued at California State University, where I completed my Bachelor’s in Computer Science.
-        </p>
-        <p>
-          My curiosity about virology, biology, and prosthetics was sparked by my love for gaming—particularly the Resident Evil series—which led me to explore how technology can improve lives. That fascination continues to drive my desire to learn and contribute meaningfully to the world around me.
-        </p>
-        <p>
-          I’m always striving to improve my communication skills and stay diligent in documenting my research, because I believe clear thinking and expression are essential to meaningful work.
-        </p>
-        <p>
-          When I’m not coding or studying, you can find me reading, drawing, or spending time with my German Shepherd, Max—a constant reminder of the joy and connection behind the tech we build.
-        </p>
+      <section id="bio-section" className="w-[90%] sm:w-[80%] lg:w-[70%] max-w-4xl mx-auto p-6 sm:p-8">
+        <div className="polaroid-container relative w-80 h-96 mx-auto cursor-pointer" onClick={handleShuffle}>
+          <div className="polaroid absolute inset-0 bg-white rounded-lg shadow-xl transform transition-transform duration-300">
+            <div className="polaroid-image h-64 bg-gray-100 rounded-t-lg overflow-hidden">
+            </div>
+            <div className="polaroid-text p-4 font-bodyFont text-sm leading-relaxed">
+              {currentPolaroid.content}
+            </div>
+            <div className="polaroid-caption text-center font-headingFont text-lg text-[var(--highlightColor)]">
+              {currentPolaroid.title}
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center mt-4 text-sm text-[var(--highlightColor)]">
+          Click to shuffle • {currentIndex + 1} of {polaroids.length}
+        </div>
       </section>
     </main>
   );
